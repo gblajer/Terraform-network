@@ -135,3 +135,7 @@ resource "azurerm_network_security_group" "nsg_dc_subnet_dc_vnet" {
     destination_address_prefix = "*"
   }
 }
+resource "azurerm_subnet_network_security_group_association" "nsg_dc_subnet_dc_vnet_assocation" {
+  subnet_id                 = azurerm_subnet.dc-subnet.id
+  network_security_group_id = azurerm_network_security_group.nsg_dc_subnet_dc_vnet.id
+}
